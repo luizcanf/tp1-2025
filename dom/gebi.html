@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function mudaVisibilidade(id) {
+            const elementoHTML = document.getElementById(id)
+            if (elementoHTML.className == "mostra") {
+                elementoHTML.className = "esconde"
+            } else {
+                elementoHTML.className = "mostra"
+            }
+        }
+    </script>
+    <style>
+        .mostra {
+            display:block;
+        }
+        .esconde {
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <ol>
+        <li onclick="mudaVisibilidade('listaTeste1')">Teste1</li>
+        <ul id="listaTeste1" class="mostra">
+            <li>bla</li>
+            <li>bla</li>
+            <li>bla</li>
+        </ul>
+        <li onclick="mudaVisibilidade('listaTeste2')">Teste2</li>
+        <ul id="listaTeste2" class="mostra">
+            <li>ble</li>
+            <li>ble</li>
+            <li>ble</li>
+        </ul>
+    </ol>
+</body>
+</html>

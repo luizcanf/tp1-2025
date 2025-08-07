@@ -1,0 +1,49 @@
+<script>
+    function mudaVisibilidade(elemento) {
+        const elementoHTML = document.getElementById(elemento)
+        if (elementoHTML.className == "mostra") {
+            elementoHTML.className = "esconde"
+        } else {
+            elementoHTML.className = "mostra"
+        }
+    }
+    function trocarVisibilidadeTudo() {
+        const botao = document.querySelector("input")
+        if (botao.value=="Esconder tudo") {
+            botao.value="Mostrar tudo"
+            const exibidos = document.querySelectorAll(".mostra")
+            exibidos.forEach(element => {
+                element.className = "esconde"
+            });
+        } else {
+            botao.value="Esconder tudo"
+            const escondidos = document.querySelectorAll(".esconde")
+            escondidos.forEach(element => {
+                element.className = "mostra"
+            });
+        }
+    }
+</script>
+<style>
+    .mostra {
+        display:block;
+    }
+    .esconde {
+        display:none;
+    }
+</style>
+<input type="button" value="Esconder tudo" onclick="trocarVisibilidadeTudo()">
+<ol>
+    <li onclick="mudaVisibilidade('listaTeste1')">Teste1</li>
+    <ul id="listaTeste1" class="mostra">
+        <li>bla</li>
+        <li>bla</li>
+        <li>bla</li>
+    </ul>
+    <li onclick="mudaVisibilidade('listaTeste2')">Teste2</li>
+    <ul id="listaTeste2" class="mostra">
+        <li>ble</li>
+        <li>ble</li>
+        <li>ble</li>
+    </ul>
+</ol>

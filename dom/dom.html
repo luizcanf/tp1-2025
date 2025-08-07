@@ -1,0 +1,13 @@
+<input type="number" id="a" value="3"> <br>
+<input type="button" value="x 2 (alert) = " onclick="alert(x2(a.value))">
+<input type="button" value="x 2 (DOM) = " onclick="multiplicaPor2()">
+<h1 id="num"></h1>
+<script>
+function x2(x){
+    return 2*x
+}
+function multiplicaPor2() {
+    let x = a.value*2
+    num.innerHTML = `X = ${x}` // "X = "+x
+}
+</script>
