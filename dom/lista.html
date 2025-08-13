@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista</title>
+    <script>
+        var itens = []
+        function novoObj() {
+            let item = {}
+            item.numero = Math.random() * 1000
+            itens.push(item)
+
+            let listItem = document.createElement("li")
+            listItem.innerHTML = `Número sorteado: ${item.numero}`
+            lista.appendChild(listItem);
+        }
+    </script>
+</head>
+<body>
+    <form action="">
+        <input type="button" value="Gerar novo objeto" onclick="novoObj()">
+    </form>
+    <!-- lista.prepend() -->
+    <ol id="lista">
+        <!-- lista.appendChild() -->
+    </ol>
+    <!-- lista.append() -->
+</body>
+</html>
