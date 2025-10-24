@@ -1,0 +1,21 @@
+<meta name="htmx-config" content='{"selfRequestsOnly":false}'>
+<script>
+    document.addEventListener('htmx:configRequest', (evt) => {
+        evt.detail.headers = [];
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.7/dist/htmx.min.js"></script>
+
+<div hx-get="https://ola-tp1.onrender.com/" hx-trigger="load, mouseover" hx-target="#teste" hx-swap="innerHTML">
+        Carregando dados de uma API externa...
+    </div>
+    <h1 id="teste"></h1>
+  <!-- have a button POST a click via AJAX -->
+  <button hx-get="https://ola-tp1.onrender.com/" hx-trigger="click" hx-swap="innerHTML">
+    Click Me
+  </button>
+
+  <form hx-post="http://ola-tp1.onrender.com/nomes" hx-include="#nome" hx-trigger="submit" hx-swap="afterend">
+    <input type="text" name="nome" id="nome">
+    <input type="submit" value="Salvar">
+  </form>
