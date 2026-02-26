@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>Aprendendo JS rodando no HTML</title>
+<script>
+</script>
+</head>
+
+<body onload="javascript:console.log('Página carregada.')">
+<h1>Criando um formulário no HTML</h1>
+<form action="/ola" method="post">
+<input type="text" name="nomezim" id="nomezim" placeholder="Nome" value="Teste">
+<input type="submit" value="Enviar">
+</form>
+<% if (typeof fala == 'undefined') { %>
+<p id="resultado">Olá?</p>
+<% } else { %>
+<p id="resultado"><%=fala%></p>
+<% } %>
+</body>
+
+</html>

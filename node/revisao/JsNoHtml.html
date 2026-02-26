@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>Aprendendo JS rodando no HTML</title>
+<script>
+function ola(nome) {
+if (typeof nome === 'undefined' || nome === '') {
+nome = 'mundo';
+}
+//alert(`Olá, ${nome}!`);
+//document.getElementById('nomezim').value = `Olá, ${nome}!`;
+//let valor = document.getElementById('nomezim').value;
+document.getElementById('resultado').innerHTML = `Olá, ${nome}!`;
+}
+</script>
+</head>
+
+<body onload="javascript:console.log('Página carregada.')">
+<h1>Criando um formulário no HTML</h1>
+<form action="javascript:ola(nomezim.value)">
+<input type="text" name="nome" id="nomezim" placeholder="Nome" value="Teste">
+<input type="submit" value="Enviar">
+</form>
+<p id="resultado">Olá?</p>
+</body>
+
+</html>
