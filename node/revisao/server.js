@@ -9,6 +9,9 @@ app.get('/', (req, res) => {
 })
 
 let nomes = []
+const arquivo = fs.readFileSync('dados/nomes.json', 'utf8')
+nomes = JSON.parse(arquivo)
+
 app.post('/ola', (req, res) => {
     let nome = req.body.nomezim
     if (typeof nome === 'undefined' || nome === '') {
@@ -18,6 +21,10 @@ app.post('/ola', (req, res) => {
     nomes.push(nome)
     fs.writeFileSync('dados/nomes.json', JSON.stringify(nomes))
     res.render('pagina', {fala: `Olá, ${nome}!`})
+})
+
+app.get('/lista', (req, res) => {
+    res.render('lista-nomes', {lista: nomes})
 })
 
 const PORT = 3000
