@@ -15,7 +15,15 @@
     Click Me
   </button>
 
-  <form hx-post="http://ola-tp1.onrender.com/nomes" hx-include="#nome" hx-trigger="submit" hx-swap="afterend">
+  Teste via localhost
+  <form hx-post="http://localhost:3000/nomes"  hx-target="#resultado">
     <input type="text" name="nome" id="nome">
-    <input type="submit" value="Salvar">
+    <button type="submit">Salvar</button>
   </form>
+
+  Teste via Render
+  <form hx-post="https://ola-tp1.onrender.com/nomes"  hx-target="#resultado">
+    <input type="text" name="nome" id="nome">
+    <button type="submit">Salvar</button>
+  </form>
+<div id="resultado"></div>
