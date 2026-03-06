@@ -4,27 +4,29 @@ app = express()
 app.use(express.urlencoded({ extended: true }))
 app.set('view engine', 'ejs')
 
+let pessoas = []
+const arquivo = fs.readFileSync('dados/pessoas.json', 'utf8')
+pessoas = JSON.parse(arquivo)
+
 app.get('/', (req, res) => {
-    res.render('pagina')
+    res.render('pagina', {pessoas})
 })
 
-let nomes = []
-const arquivo = fs.readFileSync('dados/nomes.json', 'utf8')
-nomes = JSON.parse(arquivo)
-
 app.post('/ola', (req, res) => {
-    let nome = req.body.nomezim
-    if (typeof nome === 'undefined' || nome === '') {
-        nome = 'mundo';
+    let pessoa = {}
+    pessoa.nome = req.body.nomezim
+    if (typeof pessoa.nome === 'undefined' || pessoa.nome === '') {
+        pessoa.nome = 'mundo';
     }
-    console.log(`Mensagem recebida de ${nome}!`)
-    nomes.push(nome)
-    fs.writeFileSync('dados/nomes.json', JSON.stringify(nomes))
-    res.render('pagina', {fala: `Olá, ${nome}!`})
+    pessoa.idade = parseInt(req.body.idade) || 0
+    console.log(`Mensagem recebida de ${pessoa.nome}!`)
+    pessoas.push(pessoa)
+    fs.writeFileSync('dados/pessoas.json', JSON.stringify(pessoas))
+    res.render('pagina', {fala: `Olá, ${pessoa.nome}!`, pessoas})
 })
 
 app.get('/lista', (req, res) => {
-    res.render('lista-nomes', {lista: nomes})
+    res.render('lista-nomes', {lista: pessoas})
 })
 
 const PORT = 3000
